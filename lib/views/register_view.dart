@@ -5,189 +5,176 @@ import 'package:tourism_company/widgets/custom_divider.dart';
 import 'package:tourism_company/widgets/custom_text_field.dart';
 
 // ignore: must_be_immutable
-class RegisterView extends StatelessWidget {
-  RegisterView({super.key});
-  static String id = 'register';
-  String? email;
+class RegisterView extends StatefulWidget {
+  const RegisterView({super.key});
+  static String id = 'Register';
 
+  @override
+  State<RegisterView> createState() => _RegisterViewState();
+}
+
+class _RegisterViewState extends State<RegisterView> {
+  String? email;
   String? password;
 
   @override
   Widget build(BuildContext context) {
     double screenWidth = MediaQuery.of(context).size.width;
     return Scaffold(
-      backgroundColor: kSColor,
       appBar: AppBar(
-        leading: null,
-        automaticallyImplyLeading: false,
+        toolbarHeight: 120,
         backgroundColor: kSColor,
         title: Center(
-          child: Text(
-            'ClinicApp',
-            style: TextStyle(fontSize: 36, fontWeight: FontWeight.bold),
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            crossAxisAlignment: CrossAxisAlignment.center,
+            children: [
+              Text(
+                'Bright star',
+                style: TextStyle(
+                  fontSize: 36,
+                  fontWeight: FontWeight.bold,
+                  color: kTColor,
+                ),
+              ),
+              SizedBox(height: 16),
+              Text(
+                'your entertainment is our priority',
+                style: TextStyle(
+                  fontSize: 18,
+                  fontWeight: FontWeight.bold,
+                  color: kTColor,
+                ),
+              ),
+            ],
           ),
         ),
       ),
 
-      body: Padding(
-        padding: const EdgeInsets.all(16),
-        child: ListView(
-          children: [
-            SizedBox(height: 50),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                Container(
-                  height: 70,
-                  alignment: Alignment.bottomCenter,
-                  child: CustomBottom(
-                    text: 'Login',
-                    backGroundColor: kSColor,
-                    font: subheadingsText,
-                    width: 100,
-                    height: 40,
-                    fontColor: Colors.black,
-                    ontap: () {
-                      Navigator.pop(context);
-                    },
+      body: Container(
+        decoration: BoxDecoration(gradient: kSGradient),
+        child: Padding(
+          padding: const EdgeInsets.all(16),
+          child: ListView(
+            children: [
+              SizedBox(height: 50),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  Container(
+                    height: 70,
+                    alignment: Alignment.bottomCenter,
+                    child: CustomBottom(
+                      text: 'Login',
+                      backGroundColor: kSColor,
+                      font: subheadingsText,
+                      width: 100,
+                      height: 40,
+                      fontColor: kTColor,
+                      ontap: () {
+                        Navigator.pop(context);
+                      },
+                    ),
                   ),
-                ),
 
-                SizedBox(width: 80),
+                  SizedBox(width: 80),
 
-                Container(
-                  height: 70,
-                  alignment: Alignment.topCenter,
-                  child: CustomBottom(
-                    text: 'SIGN UP',
-                    backGroundColor: kSColor,
-                    font: subheadingsText,
-                    width: 100,
-                    height: 40,
-                    fontColor: Colors.black,
+                  Container(
+                    height: 70,
+                    alignment: Alignment.topCenter,
+                    child: CustomBottom(
+                      text: 'Sign Up',
+                      backGroundColor: kSColor,
+                      font: subheadingsText,
+                      width: 100,
+                      height: 40,
+                      fontColor: kTColor,
+                    ),
                   ),
-                ),
-              ],
-            ),
+                ],
+              ),
+              SizedBox(width: 8),
+              CustomTextField(
+                text: 'Enter your Name',
+                width: screenWidth - 70,
+                font: headingText,
+                icon: Icon(Icons.person, color: Color(0xff70706E)),
+                onChanged: (data) {
+                  email = data;
+                },
+              ),
+              SizedBox(width: 8),
+              CustomTextField(
+                text: 'Enter your email ',
+                width: screenWidth - 70,
+                font: headingText,
+                icon: Icon(Icons.email, color: Color(0xff70706E)),
+                onChanged: (data) {
+                  email = data;
+                },
+              ),
 
-            Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: [
-                Icon(Icons.person, color: kPColor, size: 30),
-                SizedBox(width: 8),
-                CustomTextField(
-                  text: 'First name',
-                  width: screenWidth / 2.5,
-                  font: headingText,
-                  onChanged: (data) {
-                    email = data;
-                  },
-                ),
-                SizedBox(width: 8),
-                CustomTextField(
-                  text: 'Last name',
-                  width: screenWidth / 2.5,
-                  font: headingText,
-                  onChanged: (data) {
-                    email = data;
-                  },
-                ),
-              ],
-            ),
-            Row(
-              children: [
-                Icon(Icons.email, color: kPColor, size: 30),
-                SizedBox(width: 8),
-                CustomTextField(
-                  text: 'Email',
-                  width: screenWidth - 70,
-                  font: headingText,
-                  onChanged: (data) {
-                    email = data;
-                  },
-                ),
-              ],
-            ),
-            Row(
-              children: [
-                Icon(Icons.phone, color: kPColor, size: 30),
-                SizedBox(width: 8),
-                CustomTextField(
-                  text: 'Phone',
-                  width: screenWidth - 70,
-                  font: headingText,
-                  onChanged: (data) {
-                    email = data;
-                  },
-                ),
-              ],
-            ),
+              CustomTextField(
+                text: 'Password ',
+                width: screenWidth - 70,
+                font: headingText,
+                icon: Icon(Icons.lock_rounded, color: Color(0xff70706E)),
+                onChanged: (data) {
+                  email = data;
+                },
+              ),
+              SizedBox(width: 8),
+              CustomTextField(
+                text: 'Verified Password ',
+                width: screenWidth - 70,
+                font: headingText,
+                icon: Icon(Icons.email, color: Color(0xff70706E)),
+                onChanged: (data) {
+                  email = data;
+                },
+              ),
+              CustomBottom(
+                text: 'Forgot Password?',
+                borderColor: Colors.black.withAlpha(0),
+                font: bodyText,
+                width: double.infinity,
+                height: 30,
+                fontColor: kTColor,
+              ),
 
-            Row(
-              children: [
-                Icon(Icons.lock_open, color: kPColor, size: 30),
-                SizedBox(width: 8),
-                CustomTextField(
-                  text: 'Passsword',
-                  width: screenWidth - 70,
-                  font: headingText,
-                  onChanged: (data) {
-                    password = data;
-                  },
-                ),
-              ],
-            ),
-            Row(
-              children: [
-                Icon(Icons.check, color: kPColor, size: 30),
-                SizedBox(width: 8),
-                CustomTextField(
-                  text: 'Verfied Passsword',
-                  width: screenWidth - 70,
-                  font: headingText,
-                  onChanged: (data) {
-                    password = data;
-                  },
-                ),
-              ],
-            ),
+              CustomBottom(
+                text: 'Register',
+                backGroundColor: kPColor,
+                borderColor: kPColor,
+                font: subheadingsText,
+                width: double.infinity,
+                height: 50,
+                fontColor: kTColor,
+              ),
 
-            CustomBottom(
-              text: 'Register',
-              backGroundColor: kPColor,
-              font: subheadingsText,
-              width: double.infinity,
-              height: 50,
-              fontColor: kSColor,
-            ),
+              CustomDivider(),
 
-            CustomDivider(),
+              CustomBottom(
+                text: 'Continue with Google',
+                borderColor: Colors.red,
+                font: subheadingsText,
+                width: double.infinity,
+                height: 50,
+                fontColor: Colors.red,
+              ),
 
-            Row(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                CustomBottom(
-                  text: 'Google',
-                  backGroundColor: kPColor,
-                  font: subheadingsText,
-                  width: (screenWidth / 2) - 30,
-                  height: 50,
-                  fontColor: kSColor,
-                ),
+              SizedBox(width: 20),
 
-                SizedBox(width: 20),
-
-                CustomBottom(
-                  text: 'Facebook',
-                  backGroundColor: kPColor,
-                  font: subheadingsText,
-                  width: (screenWidth / 2) - 30,
-                  height: 50,
-                  fontColor: kSColor,
-                ),
-              ],
-            ),
-          ],
+              CustomBottom(
+                text: 'Continue with Facebook',
+                borderColor: Colors.blue,
+                font: subheadingsText,
+                width: double.infinity,
+                height: 50,
+                fontColor: Colors.blue,
+              ),
+            ],
+          ),
         ),
       ),
     );

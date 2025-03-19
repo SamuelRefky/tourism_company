@@ -30,7 +30,7 @@ class _LoginViewState extends State<LoginView> {
           child: Column(
             children: [
               Text(
-                'EGYTOUR',
+                'Bright star',
                 style: TextStyle(
                   fontSize: 36,
                   fontWeight: FontWeight.bold,
@@ -39,7 +39,7 @@ class _LoginViewState extends State<LoginView> {
               ),
               SizedBox(height: 16),
               Text(
-                'your enternainment is our priorte',
+                'your entertainment is our priority',
                 style: TextStyle(
                   fontSize: 18,
                   fontWeight: FontWeight.bold,
@@ -119,6 +119,7 @@ class _LoginViewState extends State<LoginView> {
               ),
               CustomBottom(
                 text: 'Forgot Password?',
+                borderColor: Colors.black.withAlpha(0),
                 font: bodyText,
                 width: double.infinity,
                 height: 30,
@@ -128,6 +129,7 @@ class _LoginViewState extends State<LoginView> {
               CustomBottom(
                 text: 'Login',
                 backGroundColor: kPColor,
+                borderColor: kPColor,
                 font: subheadingsText,
                 width: double.infinity,
                 height: 50,
@@ -136,29 +138,24 @@ class _LoginViewState extends State<LoginView> {
 
               CustomDivider(),
 
-              Row(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  CustomBottom(
-                    text: 'Google',
-                    backGroundColor: kPColor,
-                    font: subheadingsText,
-                    width: (screenWidth / 2) - 30,
-                    height: 50,
-                    fontColor: kTColor,
-                  ),
+              CustomBottom(
+                text: 'Continue with Google',
+                borderColor: Colors.red,
+                font: subheadingsText,
+                width: double.infinity,
+                height: 50,
+                fontColor: Colors.red,
+              ),
 
-                  SizedBox(width: 20),
+              SizedBox(width: 20),
 
-                  CustomBottom(
-                    text: 'Facebook',
-                    backGroundColor: kPColor,
-                    font: subheadingsText,
-                    width: (screenWidth / 2) - 30,
-                    height: 50,
-                    fontColor: kTColor,
-                  ),
-                ],
+              CustomBottom(
+                text: 'Continue with Facebook',
+                borderColor: Colors.blue,
+                font: subheadingsText,
+                width: double.infinity,
+                height: 50,
+                fontColor: Colors.blue,
               ),
             ],
           ),
